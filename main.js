@@ -7,17 +7,23 @@ const numButtons = document.querySelectorAll('.num-btn');
 numButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
         if (operator.length === 1) { // start getting 2nd input number after operator
-            let clickedNumber = parseInt(e.target.textContent); // convert clicked number to type number
+            let clickedNumber = e.target.textContent;
             num.push(clickedNumber); // push it to num array [num1, num2]
             let tempArray = num.splice(1); // remove num2 from num array -> num=[num1]; tempArray = [num2]
-            let inputNumber = parseInt(tempArray.join("")); // join the digits that user clicks to get final input number e.g.:"2222"->2222
+            let inputNumber = tempArray.join(""); // join the digits that user clicks to get final input number e.g.:"2222"->2222
+            if (inputNumber.includes(".") === true) { //disable "." if there is already one
+                document.getElementById("decimal").disabled = true;
+            }
             num.push(inputNumber); // push the final inputNumber to num array for calculation -> num=[num1,inputNumber]
             screenDisplay.textContent = inputNumber; // display the clicked number 
             return; // exit this event listener function
         }
-        let clickedNumber = parseInt(e.target.textContent);
+        let clickedNumber = e.target.textContent;
         num.push(clickedNumber); //num = [num1] e.g [1,1,1,1]
-        let inputNumber = parseInt(num.join("")); //e.g: num1="1111" -> num=1111
+        let inputNumber = num.join(""); //e.g: num1="1111" -> num=1111
+        if (inputNumber.includes(".") === true) { //disable "." if there is already one
+            document.getElementById("decimal").disabled = true;
+        }
         num.splice(0);  //empty the num array since num array currently has [1,1,1,1]
         num.push(inputNumber); //push the final input number to num array -> num=[1111]
         screenDisplay.textContent = inputNumber; // display the clicked number
@@ -27,6 +33,7 @@ numButtons.forEach((button) => {
 const operatorButtons = document.querySelectorAll('.operator-btn');
 operatorButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
+        document.getElementById("decimal").disabled = false;
         if (num.length === 2 && operator.length === 1) { //check if there are 2 input numbers and a operator to do calculation
             result = operate(num[0], operator[0], num[1]) //call operate function for calculation
             screenDisplay.textContent = result; //display returned result
@@ -76,24 +83,24 @@ function operate(firstNum, operator, secondNum) {
 }
 
 function add(a, b) {
-    let ans = a + b;
+    let ans = parseFloat(a) + parseFloat(b);
     return Math.round(ans * 10) / 10;;
 }
 
 function subtract(a, b) {
-    let ans = a - b;
+    let ans = parseFloat(a) - parseFloat(b);
     return Math.round(ans * 10) / 10;
 }
 
 function multiply(a, b) {
-    let ans = a * b;
+    let ans = parseFloat(a) * parseFloat(b);
     return Math.round(ans * 10) / 10;
 }
 
 function divide(a, b) {
-    if (b === 0) {
+    if (parseFloat(b) === 0) {
         return "Divide by 0!?"
     }
-    let ans = a / b;
+    let ans = parseFloat(a) / parseFloat(b);
     return Math.round(ans * 10) / 10;
 }
