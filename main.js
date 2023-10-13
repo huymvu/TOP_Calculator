@@ -33,7 +33,7 @@ numButtons.forEach((button) => {
 const operatorButtons = document.querySelectorAll('.operator-btn');
 operatorButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        document.getElementById("decimal").disabled = false;
+        document.getElementById("decimal").disabled = false; //re-enable "."
         if (num.length === 2 && operator.length === 1) { //check if there are 2 input numbers and a operator to do calculation
             result = operate(num[0], operator[0], num[1]) //call operate function for calculation
             screenDisplay.textContent = result; //display returned result
@@ -43,7 +43,7 @@ operatorButtons.forEach((button) => {
                 return; // exit this event listener function
             } else { //if there is no error
                 num.splice(0); //empty num array
-                num.push(result); //insert the result into num array
+                num.push(String(result)); //insert the result into num array as a string to implement delete button
                 operator.splice(0); //empty operator array
                 return; // exit this event listener function
             }
@@ -62,12 +62,33 @@ operatorButtons.forEach((button) => {
 });
 
 //clear function to reset everything
-const clearButton = document.querySelector('.ClearBtn');
+const clearButton = document.querySelector('.clear-btn');
 clearButton.addEventListener('click', (e) => {
     num.splice(0);
     operator.splice(0);
     screenDisplay.textContent = 0;
 });
+
+//delete button
+const deleteButton = document.querySelector('.delete-btn');
+deleteButton.addEventListener('click', (e) => {
+    if (screenDisplay.textContent.slice(-1) === "." || isNaN(screenDisplay.textContent.slice(-1)) === false) {
+        if (num.length < 2) {
+            let trimArray = num[0].slice(0, -1); //remove last letter e.g. ["ab"]->["a"]
+            num.splice(0);
+            num.push(trimArray);
+            screenDisplay.textContent = num[0];
+        }
+        else {
+            let trimArray = num[1].slice(0, -1);
+            num.splice(1);
+            num.push(trimArray);
+            screenDisplay.textContent = num[1];
+        }
+    } else {
+        operator.pop();
+    }
+})
 
 //operate function to perform different calculations based on user input
 function operate(firstNum, operator, secondNum) {

@@ -1,14 +1,29 @@
-/* *{
+*{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 
-h1{
-    text-align: center;
-}
-
-.container{
+body{
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+/* h1{
+    text-align: center;
+    
 } */
+
+.container{
+    width:360px;
+    height:540px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: linear-gradient( 45deg, hsla(184, 70%, 54%, 1) 0%, hsla(221, 73%, 63%, 1) 100% );;
+    box-shadow: 0 0 24px 5px rgb(20, 169, 192);;
+}
