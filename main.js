@@ -45,7 +45,7 @@ operatorButtons.forEach((button) => {
                 num.splice(0); //empty num array
                 num.push(String(result)); //insert the result into num array as a string to implement delete button
                 operator.splice(0); //empty operator array
-                return; // exit this event listener function
+                // return; // exit this event listener function
             }
         }
         else if (num.length === 1 && e.target.textContent === "=") { //if "=" is pressed before entering 2nd number and an operator
