@@ -37,28 +37,17 @@ body{
     justify-content: flex-end;
     color:rgb(238, 244, 249);
 }
+
 .button-container{
     flex:5;
     width:100%;
     display: flex;
     flex-direction: column;
 }
-.first-row{
-    flex:1;
-    display:flex;
-}
-.second-row{
-    flex:1;
-    display:flex;
-}
-.third-row{
-    flex:1;
-    display:flex;
-}
-.fourth-row{
-    flex:1;
-    display:flex;
-}
+.first-row,
+.second-row,
+.third-row,
+.fourth-row,
 .fifth-row{
     flex:1;
     display:flex;
@@ -70,13 +59,11 @@ body{
     background:linear-gradient(45deg, rgb(251, 251, 251) 0%, rgb(239, 159, 159) 100% );
 }
 
-.delete-btn{
+.delete-btn, 
+.operator-btn{
     background:linear-gradient(45deg, rgb(251, 251, 251) 0%, rgba(228, 233, 246, 0.619) 100% );
 }
 
-div .operator-btn{
-    background:linear-gradient(45deg, rgb(251, 251, 251) 0%, rgba(228, 233, 246, 0.619) 100% );
-}
 button{
     flex:1;
     border: 0;
