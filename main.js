@@ -74,6 +74,9 @@ const deleteButton = document.querySelector('.delete-btn');
 deleteButton.addEventListener('click', (e) => {
     if (screenDisplay.textContent.slice(-1) === "." || isNaN(screenDisplay.textContent.slice(-1)) === false) {
         if (num.length < 2) {
+            if (num.length === 0) {
+                return;
+            }
             let trimArray = num[0].slice(0, -1); //remove last letter e.g. ["ab"]->["a"]
             num.splice(0);
             num.push(trimArray);
@@ -85,7 +88,8 @@ deleteButton.addEventListener('click', (e) => {
             num.push(trimArray);
             screenDisplay.textContent = num[1];
         }
-    } else {
+    }
+    else {
         operator.pop();
     }
 })

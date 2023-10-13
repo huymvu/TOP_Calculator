@@ -2,8 +2,12 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-size: large;
+    font-weight: bold;
 }
-
+:root{
+    --bg-gradient: linear-gradient( 45deg, hsla(184, 70%, 54%, 1) 0%, hsla(221, 73%, 63%, 1) 100% );
+}
 body{
     width: 100vw;
     height: 100vh;
@@ -11,19 +15,71 @@ body{
     justify-content: center;
     align-items: center;
 }
-/* h1{
-    text-align: center;
-    
-} */
 
 .container{
     width:360px;
     height:540px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     border-radius: 8px;
-    background: linear-gradient( 45deg, hsla(184, 70%, 54%, 1) 0%, hsla(221, 73%, 63%, 1) 100% );;
-    box-shadow: 0 0 24px 5px rgb(20, 169, 192);;
+    background: var(--bg-gradient);
+    box-shadow: 0 0 14px 5px rgb(100, 190, 204);
+}
+
+.display{
+    flex:2;
+    width: 100%;
+    padding: 10px 20px ;
+    font-size:xx-large;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color:rgb(238, 244, 249);
+}
+.button-container{
+    flex:5;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+.first-row{
+    flex:1;
+    display:flex;
+}
+.second-row{
+    flex:1;
+    display:flex;
+}
+.third-row{
+    flex:1;
+    display:flex;
+}
+.fourth-row{
+    flex:1;
+    display:flex;
+}
+.fifth-row{
+    flex:1;
+    display:flex;
+}
+
+#clearbutton{
+    flex:2;
+    color:rgb(235, 105, 76);
+    background:linear-gradient(45deg, rgb(251, 251, 251) 0%, rgb(239, 159, 159) 100% );
+}
+
+.delete-btn{
+    background:linear-gradient(45deg, rgb(251, 251, 251) 0%, rgba(228, 233, 246, 0.619) 100% );
+}
+
+div .operator-btn{
+    background:linear-gradient(45deg, rgb(251, 251, 251) 0%, rgba(228, 233, 246, 0.619) 100% );
+}
+button{
+    flex:1;
+    border: 0;
+    background:linear-gradient(45deg, rgb(251, 251, 251) 0%, rgb(228, 233, 246) 100% );
+    color:rgb(138, 182, 220);
 }
