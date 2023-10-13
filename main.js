@@ -57,6 +57,9 @@ operatorButtons.forEach((button) => {
             return;
         }
         let clickedOperator = e.target.textContent;
+        if (clickedOperator === "=") {
+            return;
+        }
         operator.push(clickedOperator); //insert current clicked operator to operator array
     })
 });
