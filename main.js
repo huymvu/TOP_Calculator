@@ -134,3 +134,18 @@ function divide(a, b) {
     let ans = parseFloat(a) / parseFloat(b);
     return Math.round(ans * 10) / 10;
 }
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+    button.addEventListener('mouseenter', () => {
+        button.classList.add('choosing');
+    });
+    button.addEventListener('mouseleave', () => {
+        button.classList.remove('choosing');
+    })
+    button.addEventListener('click', () => {
+        button.classList.add('clicking');
+        setTimeout(() => {
+            button.classList.remove('clicking');
+        }, 100);
+    })
+})

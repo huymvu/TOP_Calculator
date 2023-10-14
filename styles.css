@@ -69,4 +69,14 @@ button{
     border: 0;
     background:linear-gradient(45deg, rgb(251, 251, 251) 0%, rgb(228, 233, 246) 100% );
     color:rgb(138, 182, 220);
+    transition: 0.3s;
+}
+
+.choosing{
+    transform: scale(1.1);
+    box-shadow: 0 0 14px 5px rgb(100, 190, 204);
+}
+
+.clicking{
+    transform: scale(0.75);
 }
